@@ -1,1 +1,3 @@
-console.log("hi")
+import loadHomePage from "./page-load.js"
+
+loadHomePage();
