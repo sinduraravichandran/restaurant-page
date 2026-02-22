@@ -18,7 +18,6 @@ export default {
     rules: [
       {
         test: /\.css$/i,
-        type: "javascript/auto", // ✅ add this line
         use: ["style-loader", "css-loader"], 
       },
     ],
