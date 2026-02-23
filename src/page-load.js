@@ -1,5 +1,7 @@
 function loadHomePage() {
     const content = document.getElementById("content");
+    //clears the page
+    content.innerHTML = "";
 
     const newHeader = document.createElement("h1");
     newHeader.textContent = "Best Indian Restaurant in NYC"

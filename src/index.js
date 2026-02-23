@@ -11,3 +11,4 @@ const contactButton = document.getElementById("contact");
 
 menuButton.addEventListener("click",loadMenu);
 contactButton.addEventListener("click",loadContact);
+homeButton.addEventListener("click", loadHomePage)

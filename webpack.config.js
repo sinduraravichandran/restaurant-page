@@ -1,10 +1,13 @@
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { createRequire } from "node:module";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 
 // These lines are required in ESM to get __dirname
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+const require = createRequire(import.meta.url);
+
 
 export default {
   mode: "development",
@@ -18,8 +21,10 @@ export default {
     rules: [
       {
         test: /\.css$/i,
-        type: "javascript/auto", // ✅ add this line
-        use: ["style-loader", "css-loader"], 
+        use: [
+            { loader: require.resolve("style-loader") },
+            { loader: require.resolve("css-loader") },
+], 
       },
     ],
   },
@@ -32,5 +37,6 @@ export default {
     hot: true,
     liveReload: true,
     watchFiles: ["src/**/*"],
+    static: false,
   },
 };
